@@ -48,7 +48,7 @@
     "react": "^16.3.0"
   },
   "dependencies": {
-    "smooth-dnd": "sairam459/smooth-dnd#multi-scroll",
-    "prop-types":">=15.6.0"
+    "prop-types": ">=15.6.0",
+    "smooth-dnd": "sairam459/smooth-dnd#multi-scroll"
   }
 }
