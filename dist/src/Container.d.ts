@@ -30,6 +30,7 @@ declare class Container extends Component<ContainerProps> {
         render: PropTypes.Requireable<(...args: any[]) => any>;
         getGhostParent: PropTypes.Requireable<(...args: any[]) => any>;
         removeOnDropOut: PropTypes.Requireable<boolean>;
+        refreshKey: PropTypes.Requireable<string>;
         dropPlaceholder: PropTypes.Requireable<boolean | PropTypes.InferProps<{
             className: PropTypes.Requireable<string>;
             animationDuration: PropTypes.Requireable<number>;

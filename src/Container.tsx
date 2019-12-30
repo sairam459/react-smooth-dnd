@@ -36,6 +36,7 @@ class Container extends Component<ContainerProps> {
 		render: PropTypes.func,
 		getGhostParent: PropTypes.func,
     removeOnDropOut: PropTypes.bool,
+    refreshKey: PropTypes.string,
     dropPlaceholder: PropTypes.oneOfType([
       PropTypes.shape({
         className: PropTypes.string,
