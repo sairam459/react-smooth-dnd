@@ -8,7 +8,8 @@ container.wrapChild = false;
 
 interface ContainerProps extends ContainerOptions {
 	render?: (rootRef: React.RefObject<any>) => React.ReactElement;
-	style?: CSSProperties;
+  style?: CSSProperties;
+  refreshKey?: String;
 }
 
 class Container extends Component<ContainerProps> {
@@ -75,12 +76,12 @@ class Container extends Component<ContainerProps> {
 
   componentDidUpdate(prevProps: ContainerProps) {
     if (this.getContainer()) {
-      // if (this.prevContainer && this.prevContainer !== this.getContainer()) {
+      if ((this.prevContainer && this.prevContainer !== this.getContainer()) || this.props.refreshKey !== prevProps.refreshKey ) {
         this.container.dispose();
         this.container = container(this.getContainer(), this.getContainerOptions());
         this.prevContainer = this.getContainer();
-        // return;
-      // }
+        return;
+      }
 
       if (this.isObjectTypePropsChanged(prevProps)) {
         this.container.setOptions(this.getContainerOptions())
@@ -127,11 +128,13 @@ class Container extends Component<ContainerProps> {
       const prop = this.props[optionName];
 
       if (typeof prop === 'function') {
-        result[optionName] = (...params: any[]) => {
+        let f:any=(...params:undefined[]) => {
           return (this.props[optionName] as Function)(...params);
         }
+        result[optionName] = f
       } else {
-        result[optionName] = prop;
+        let f:any = prop
+        result[optionName] = f
       }
 
       return result;

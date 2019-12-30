@@ -4,6 +4,7 @@ import { ContainerOptions, SmoothDnD } from 'smooth-dnd';
 interface ContainerProps extends ContainerOptions {
     render?: (rootRef: React.RefObject<any>) => React.ReactElement;
     style?: CSSProperties;
+    refreshKey?: String;
 }
 declare class Container extends Component<ContainerProps> {
     static propTypes: {
