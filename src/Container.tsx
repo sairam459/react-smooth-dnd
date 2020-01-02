@@ -87,9 +87,9 @@ class Container extends Component<ContainerProps> {
         this.container.setOptions(this.getContainerOptions())
       }
 
-      if(this.props.refreshKey !== prevProps.refreshKey){
-        this.container.addLazyDrags();
-      }
+      // if(this.props.refreshKey !== prevProps.refreshKey){
+      //   this.container.addLazyDrags();
+      // }
     }
   }
 
